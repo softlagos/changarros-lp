@@ -1,80 +1,1255 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Changarros | Enterprise-Grade Tech for MSMEs</title>
-    <meta name="description" content="Digital transformation for small businesses, powered by 30 years of enterprise software expertise.">
-    
-    <meta property="og:title" content="Changarros | Digital Transformation">
-    <meta property="og:description" content="Robust financial technology for local businesses. Relocating to ABQ.">
-    <meta property="og:url" content="https://changarros.net">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changarros — Tu Barrio en un Toque</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; }
-        .hero-gradient { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
-    </style>
+  :root {
+    --marigold: #F5A623;
+    --marigold-dark: #C47B08;
+    --terracotta: #C94C2D;
+    --terracotta-light: #F0977C;
+    --forest: #2D6A4F;
+    --mint: #74C69D;
+    --cream: #FDF6EC;
+    --warm-white: #FFFBF4;
+    --charcoal: #1C1916;
+    --warm-gray: #6B6360;
+    --pink: #E8476A;
+    --sky: #3AABDB;
+    --purple: #8B5CF6;
+    --section-pad: clamp(64px, 8vw, 120px);
+    --inner: min(1200px, 92vw);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 18px 5vw;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(253,246,236,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1.5px solid rgba(245,166,35,0.2);
+  }
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 26px; font-weight: 900;
+    color: var(--terracotta);
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--marigold); }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 14px; font-weight: 600; color: var(--charcoal);
+    text-decoration: none; opacity: 0.75; transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
+  .nav-cta {
+    background: var(--terracotta) !important;
+    color: white !important; opacity: 1 !important;
+    padding: 9px 22px; border-radius: 100px;
+    font-size: 14px !important; transition: transform 0.2s, background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--charcoal) !important; transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    padding-top: 80px;
+    background: var(--cream);
+    position: relative;
+    display: flex; align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg-shapes {
+    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  }
+  .hero-blob {
+    position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.35;
+  }
+  .hero-blob-1 { width: 600px; height: 600px; background: var(--marigold); top: -150px; right: -100px; }
+  .hero-blob-2 { width: 400px; height: 400px; background: var(--terracotta-light); bottom: -100px; left: -80px; }
+  .hero-blob-3 { width: 300px; height: 300px; background: var(--mint); top: 40%; right: 20%; }
+
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .hero-inner { max-width: var(--inner); margin: 0 auto; padding: 0 5vw; position: relative; z-index: 1; width: 100%; }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: white; border: 1.5px solid var(--marigold);
+    border-radius: 100px; padding: 6px 16px;
+    font-size: 13px; font-weight: 700; color: var(--marigold-dark);
+    margin-bottom: 28px; letter-spacing: 0.3px;
+  }
+  .hero-eyebrow .dot { width: 8px; height: 8px; background: var(--marigold); border-radius: 50%; animation: pulse 2s ease infinite; }
+  @keyframes pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.4);opacity:0.6} }
+
+  .hero-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(52px, 6vw, 88px);
+    font-weight: 900; line-height: 1.0;
+    letter-spacing: -2px; margin-bottom: 24px;
+    color: var(--charcoal);
+  }
+  .hero-title .italic { font-style: italic; color: var(--terracotta); }
+  .hero-title .accent { color: var(--marigold); }
+
+  .hero-subtitle {
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.65; color: var(--warm-gray);
+    max-width: 500px; margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 48px; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--terracotta); color: white;
+    padding: 16px 32px; border-radius: 100px;
+    font-weight: 700; font-size: 16px; text-decoration: none;
+    transition: transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 8px 24px rgba(201,76,45,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(201,76,45,0.4); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent; color: var(--charcoal);
+    padding: 16px 32px; border-radius: 100px;
+    font-weight: 700; font-size: 16px; text-decoration: none;
+    border: 2px solid var(--charcoal);
+    transition: transform 0.25s, background 0.25s;
+  }
+  .btn-secondary:hover { background: var(--charcoal); color: white; transform: translateY(-3px); }
+
+  .hero-trust { display: flex; gap: 28px; align-items: center; }
+  .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--warm-gray); }
+  .trust-icon { font-size: 18px; }
+
+  /* PHONE MOCKUP */
+  .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+  .phone-wrap {
+    position: relative;
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
+  .phone {
+    width: 280px;
+    background: var(--charcoal);
+    border-radius: 44px;
+    padding: 14px;
+    box-shadow: 0 32px 80px rgba(28,25,22,0.35), 0 0 0 1px rgba(255,255,255,0.08);
+    position: relative; z-index: 2;
+  }
+  .phone-inner {
+    background: var(--warm-white);
+    border-radius: 34px;
+    overflow: hidden;
+    height: 560px;
+    position: relative;
+  }
+  .phone-status { background: var(--charcoal); padding: 10px 20px 6px; display: flex; justify-content: space-between; align-items: center; }
+  .phone-time { color: white; font-size: 12px; font-weight: 700; }
+  .phone-notch { width: 80px; height: 24px; background: var(--charcoal); border-radius: 0 0 16px 16px; margin: 0 auto; }
+
+  .app-header { padding: 14px 16px 10px; background: white; border-bottom: 1px solid #F0EBE0; }
+  .app-logo-sm { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 900; color: var(--terracotta); }
+  .app-search {
+    margin-top: 10px; background: var(--cream); border-radius: 12px;
+    padding: 9px 12px; font-size: 12px; color: var(--warm-gray);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .app-barrio-pills { display: flex; gap: 6px; padding: 10px 16px; overflow: hidden; }
+  .pill {
+    white-space: nowrap; font-size: 11px; font-weight: 700;
+    padding: 5px 12px; border-radius: 100px; border: 1.5px solid;
+  }
+  .pill-active { background: var(--terracotta); color: white; border-color: var(--terracotta); }
+  .pill-inactive { background: white; color: var(--charcoal); border-color: #DDD; }
+
+  .mosaic { padding: 8px 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .biz-card {
+    border-radius: 14px; overflow: hidden;
+    background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    cursor: pointer; transition: transform 0.2s;
+  }
+  .biz-card:hover { transform: scale(1.03); }
+  .biz-img {
+    height: 72px; display: flex; align-items: center; justify-content: center;
+    font-size: 32px;
+  }
+  .biz-info { padding: 6px 8px 8px; }
+  .biz-name { font-size: 11px; font-weight: 700; color: var(--charcoal); }
+  .biz-type { font-size: 10px; color: var(--warm-gray); }
+  .biz-stars { font-size: 10px; color: var(--marigold); margin-top: 2px; }
+
+  .floating-badge {
+    position: absolute; background: white;
+    border-radius: 16px; padding: 10px 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    font-size: 12px; font-weight: 700;
+    animation: floatBadge 5s ease-in-out infinite;
+    z-index: 3;
+  }
+  .badge-left { left: -60px; top: 30%; animation-delay: 0.5s; }
+  .badge-right { right: -50px; bottom: 25%; animation-delay: 1.5s; }
+  @keyframes floatBadge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  .badge-emoji { font-size: 20px; }
+
+  /* MARQUEE */
+  .marquee-section { background: var(--terracotta); padding: 18px 0; overflow: hidden; }
+  .marquee-track {
+    display: flex; gap: 0; white-space: nowrap;
+    animation: marquee 22s linear infinite;
+  }
+  @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .marquee-item {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 0 28px; font-size: 15px; font-weight: 700; color: white; letter-spacing: 0.5px;
+  }
+  .marquee-dot { width: 6px; height: 6px; background: rgba(255,255,255,0.5); border-radius: 50%; }
+
+  /* SECTION SHARED */
+  section { padding: var(--section-pad) 5vw; }
+  .section-inner { max-width: var(--inner); margin: 0 auto; }
+  .section-tag {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--terracotta); margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 4vw, 60px);
+    font-weight: 900; line-height: 1.08;
+    letter-spacing: -1.5px; margin-bottom: 20px;
+    color: var(--charcoal);
+  }
+  .section-title .italic { font-style: italic; color: var(--terracotta); }
+  .section-lead { font-size: 18px; line-height: 1.7; color: var(--warm-gray); max-width: 580px; }
+
+  /* HOW IT WORKS */
+  .how-section { background: var(--cream); }
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 60px; }
+  .step-card {
+    background: white; border-radius: 28px;
+    padding: 36px 28px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .step-card::before {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 4px; background: var(--gradient);
+  }
+  .step-card:hover { border-color: var(--marigold); transform: translateY(-6px); }
+  .step-num {
+    font-family: 'Fraunces', serif; font-size: 72px; font-weight: 900;
+    color: var(--cream); line-height: 1; margin-bottom: 20px;
+  }
+  .step-icon { font-size: 40px; margin-bottom: 16px; }
+  .step-title { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+  .step-desc { font-size: 15px; line-height: 1.65; color: var(--warm-gray); }
+
+  /* CATEGORIES MOSAIC */
+  .categories-section { background: var(--charcoal); }
+  .categories-section .section-title { color: white; }
+  .categories-section .section-tag { color: var(--marigold); }
+  .categories-section .section-lead { color: rgba(255,255,255,0.6); }
+  .cat-mosaic { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+  .cat-card {
+    border-radius: 24px; padding: 28px 22px;
+    cursor: pointer; transition: transform 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .cat-card:hover { transform: scale(1.04) rotate(-0.5deg); }
+  .cat-emoji { font-size: 44px; margin-bottom: 14px; display: block; }
+  .cat-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .cat-count { font-size: 13px; opacity: 0.75; }
+
+  .cat-1 { background: #FFF3E0; color: var(--charcoal); }
+  .cat-2 { background: #F3E8FF; color: var(--charcoal); }
+  .cat-3 { background: #E8F5E9; color: var(--charcoal); }
+  .cat-4 { background: #FCE4EC; color: var(--charcoal); }
+  .cat-5 { background: #E3F2FD; color: var(--charcoal); }
+  .cat-6 { background: #FFF9C4; color: var(--charcoal); }
+  .cat-7 { background: #F1F8E9; color: var(--charcoal); }
+  .cat-8 { background: #FBE9E7; color: var(--charcoal); }
+
+  /* WHY SECTION */
+  .why-section { background: white; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 60px; }
+  .why-features { display: grid; gap: 28px; }
+  .why-feat { display: flex; gap: 20px; align-items: flex-start; }
+  .feat-icon-wrap {
+    flex-shrink: 0; width: 52px; height: 52px; border-radius: 16px;
+    display: flex; align-items: center; justify-content: center; font-size: 24px;
+  }
+  .feat-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+  .feat-desc { font-size: 15px; line-height: 1.65; color: var(--warm-gray); }
+
+  .why-visual { position: relative; }
+  .stat-block {
+    background: var(--cream); border-radius: 28px; padding: 36px;
+    border: 2px solid var(--marigold);
+  }
+  .stat-row { display: flex; gap: 24px; margin-bottom: 24px; }
+  .stat-item { flex: 1; text-align: center; }
+  .stat-num {
+    font-family: 'Fraunces', serif; font-size: 48px; font-weight: 900;
+    color: var(--terracotta); line-height: 1; display: block;
+  }
+  .stat-label { font-size: 13px; font-weight: 600; color: var(--warm-gray); margin-top: 4px; }
+  .stat-divider { width: 1px; background: #E8DDD0; }
+  .why-quote {
+    background: var(--terracotta); border-radius: 20px; padding: 28px;
+    margin-top: 20px; color: white;
+  }
+  .why-quote p { font-size: 15px; line-height: 1.7; font-style: italic; margin-bottom: 14px; }
+  .why-quote .author { font-size: 13px; font-weight: 700; opacity: 0.85; }
+
+  /* DOWNLOAD/QR SECTION */
+  .download-section {
+    background: var(--cream);
+    position: relative; overflow: hidden;
+  }
+  .download-bg {
+    position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(245,166,35,0.15) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 60% at 10% 30%, rgba(201,76,45,0.1) 0%, transparent 70%);
+  }
+  .download-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
+  .qr-cards { display: flex; gap: 24px; }
+  .qr-card {
+    flex: 1; background: white; border-radius: 28px;
+    padding: 32px 24px; text-align: center;
+    border: 2px solid #F0E8D8;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    transition: transform 0.25s;
+  }
+  .qr-card:hover { transform: translateY(-6px); }
+  .qr-box {
+    width: 160px; height: 160px; margin: 0 auto 20px;
+    background: var(--charcoal); border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .qr-store-icon { font-size: 48px; }
+  .qr-label { font-size: 14px; font-weight: 700; color: var(--charcoal); margin-bottom: 4px; }
+  .qr-sub { font-size: 12px; color: var(--warm-gray); }
+  .qr-btn {
+    display: block; margin-top: 16px;
+    background: var(--charcoal); color: white;
+    padding: 12px 20px; border-radius: 12px;
+    font-size: 14px; font-weight: 700; text-decoration: none;
+    transition: background 0.2s;
+  }
+  .qr-btn:hover { background: var(--terracotta); }
+  .qr-svg {
+    width: 140px; height: 140px;
+  }
+
+  /* COMMUNITY */
+  .community-section { background: var(--forest); }
+  .community-section .section-title { color: white; }
+  .community-section .section-tag { color: var(--mint); }
+  .community-section .section-lead { color: rgba(255,255,255,0.65); }
+  .community-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+  .community-card {
+    background: rgba(255,255,255,0.07); border-radius: 24px;
+    padding: 32px 28px; border: 1.5px solid rgba(255,255,255,0.1);
+    transition: background 0.3s, transform 0.3s;
+  }
+  .community-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-4px); }
+  .community-card .icon { font-size: 40px; margin-bottom: 16px; }
+  .community-card h3 { font-size: 20px; font-weight: 700; color: white; margin-bottom: 10px; }
+  .community-card p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.6); }
+
+  /* TESTIMONIALS */
+  .testimonials-section { background: white; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+  .testi-card {
+    background: var(--cream); border-radius: 24px; padding: 28px;
+    border: 1.5px solid #EEE6D8; transition: transform 0.25s;
+  }
+  .testi-card:hover { transform: translateY(-4px); }
+  .testi-stars { font-size: 16px; color: var(--marigold); margin-bottom: 14px; }
+  .testi-text { font-size: 15px; line-height: 1.7; color: var(--charcoal); margin-bottom: 20px; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 900; color: white;
+    font-family: 'Fraunces', serif;
+    flex-shrink: 0;
+  }
+  .testi-name { font-size: 14px; font-weight: 700; }
+  .testi-role { font-size: 12px; color: var(--warm-gray); }
+
+  /* CTA FINAL */
+  .final-cta {
+    background: var(--terracotta);
+    text-align: center; padding: var(--section-pad) 5vw;
+    position: relative; overflow: hidden;
+  }
+  .final-cta::before {
+    content: ''; position: absolute;
+    width: 700px; height: 700px; border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    top: -300px; left: -200px;
+  }
+  .final-cta::after {
+    content: ''; position: absolute;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: rgba(0,0,0,0.06);
+    bottom: -200px; right: -100px;
+  }
+  .final-cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+  .final-cta h2 {
+    font-family: 'Fraunces', serif; font-size: clamp(40px,5vw,72px);
+    font-weight: 900; color: white; letter-spacing: -2px; line-height: 1.05; margin-bottom: 20px;
+  }
+  .final-cta h2 em { font-style: italic; color: var(--marigold); }
+  .final-cta p { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 40px; line-height: 1.7; }
+  .final-cta .btn-white {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: white; color: var(--terracotta);
+    padding: 18px 40px; border-radius: 100px;
+    font-weight: 800; font-size: 17px; text-decoration: none;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .final-cta .btn-white:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,0.2); }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal); padding: 56px 5vw 32px;
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-inner { max-width: var(--inner); margin: 0 auto; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 40px; flex-wrap: wrap; }
+  .footer-brand .logo { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 900; color: var(--terracotta-light); margin-bottom: 10px; }
+  .footer-brand .logo span { color: var(--marigold); }
+  .footer-brand p { font-size: 14px; max-width: 260px; line-height: 1.65; }
+  .footer-links h4 { color: white; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .footer-links a { display: block; font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 8px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--marigold); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; flex-wrap: wrap; gap: 12px; }
+  .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  .footer-social { display: flex; gap: 16px; }
+  .social-btn {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.5); font-size: 16px; text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .social-btn:hover { background: var(--terracotta); color: white; }
+
+  /* Bilingual toggle */
+  .lang-toggle {
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.15); border-radius: 100px;
+    padding: 4px 6px; cursor: pointer;
+  }
+  .lang-btn {
+    padding: 4px 12px; border-radius: 100px;
+    font-size: 12px; font-weight: 700; cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    color: rgba(255,255,255,0.7); background: transparent; border: none;
+  }
+  .lang-btn.active { background: white; color: var(--terracotta); }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-grid, .why-grid, .download-grid { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .steps-grid, .community-grid, .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    .cat-mosaic { grid-template-columns: repeat(2, 1fr); }
+    .qr-cards { flex-direction: column; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .steps-grid, .community-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .stat-row { flex-direction: column; gap: 16px; }
+    .stat-divider { width: 100%; height: 1px; }
+    .hero-title { font-size: 46px; letter-spacing: -1.5px; }
+  }
+
+  /* Bilingual hidden content */
+  .es { display: block; }
+  .en { display: none; }
+  body.lang-en .es { display: none; }
+  body.lang-en .en { display: block; }
+  .bilingual-inline .es { display: inline; }
+  .bilingual-inline .en { display: none; }
+  body.lang-en .bilingual-inline .es { display: none; }
+  body.lang-en .bilingual-inline .en { display: inline; }
+</style>
 </head>
 <body>
 
-    <header class="hero-gradient text-white py-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-5xl font-extrabold mb-6">Changarros</h1>
-            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Enterprise-Grade Power for Small Business Hearts. Bridging the digital divide with mission-critical technology.
-            </p>
-            <div class="flex justify-center gap-4">
-                <a href="mailto:contacto@asvdevep.com" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition">Contact Us</a>
-                <span class="bg-blue-900/50 border border-blue-400/30 py-3 px-8 rounded-lg font-medium">Coming to Albuquerque - July 2026</span>
-            </div>
-        </div>
-    </header>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo bilingual-inline">
+    Ch<span>a</span>ngarros
+  </div>
+  <div class="nav-links">
+    <a href="#como-funciona" class="bilingual-inline"><span class="es">¿Cómo funciona?</span><span class="en">How it works</span></a>
+    <a href="#categorias" class="bilingual-inline"><span class="es">Categorías</span><span class="en">Categories</span></a>
+    <a href="#comunidad" class="bilingual-inline"><span class="es">Comunidad</span><span class="en">Community</span></a>
+    <a href="#descargar" class="nav-cta bilingual-inline"><span class="es">Descargar App</span><span class="en">Download App</span></a>
+  </div>
+  <div class="lang-toggle" onclick="toggleLang()">
+    <button class="lang-btn active" id="btn-es">ES</button>
+    <button class="lang-btn" id="btn-en">EN</button>
+  </div>
+</nav>
 
-    <section class="py-20 px-6 max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
-        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-            <div class="text-blue-600 font-bold mb-4">01 / RELIABILITY</div>
-            <h3 class="text-xl font-bold mb-4">Seamless Financial Control</h3>
-            <p class="text-gray-600 leading-relaxed">Take control of accounting and inventory with a modular system built on the field-proven Shake Framework.</p>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg-shapes">
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="hero-blob hero-blob-3"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow fade-up">
+          <span class="dot"></span>
+          <span class="es">Tu barrio, siempre contigo</span>
+          <span class="en">Your neighborhood, always with you</span>
         </div>
-        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-            <div class="text-blue-600 font-bold mb-4">02 / ARCHITECTURE</div>
-            <h3 class="text-xl font-bold mb-4">Robust Infrastructure</h3>
-            <p class="text-gray-600 leading-relaxed">Powered by a custom PostgreSQL backend. We ensure bank-level data integrity for the heart of the local economy.</p>
+        <h1 class="hero-title fade-up">
+          <span class="es">El <span class="italic">corazón</span><br>de tu<br><span class="accent">barrio</span><br>en tu mano.</span>
+          <span class="en">Your<br><span class="italic">neighborhood</span>'s<br><span class="accent">heart</span><br>in your hand.</span>
+        </h1>
+        <p class="hero-subtitle fade-up">
+          <span class="es">Changarros conecta a las pequeñas empresas locales con su comunidad. Panaderías, flores, café, servicios — todo en tu colonia, a un toque de distancia.</span>
+          <span class="en">Changarros connects local small businesses with their community. Bakeries, flowers, coffee, services — everything in your neighborhood, one tap away.</span>
+        </p>
+        <div class="hero-actions fade-up">
+          <a href="#descargar" class="btn-primary">
+            <span class="es">📲 Descarga Gratis</span>
+            <span class="en">📲 Download Free</span>
+          </a>
+          <a href="#como-funciona" class="btn-secondary">
+            <span class="es">Ver cómo funciona →</span>
+            <span class="en">See how it works →</span>
+          </a>
         </div>
-        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-            <div class="text-blue-600 font-bold mb-4">03 / VISION</div>
-            <h3 class="text-xl font-bold mb-4">Community Impact</h3>
-            <p class="text-gray-600 leading-relaxed">Designed to digitize MSMEs, providing tools previously only accessible to large governments and universities.</p>
+        <div class="hero-trust fade-up">
+          <div class="trust-item"><span class="trust-icon">🏪</span><span class="es">+500 negocios</span><span class="en">+500 businesses</span></div>
+          <div class="trust-item"><span class="trust-icon">🏘️</span><span class="es">+30 colonias</span><span class="en">+30 neighborhoods</span></div>
+          <div class="trust-item"><span class="trust-icon">⭐</span><span class="es">4.9 estrellas</span><span class="en">4.9 stars</span></div>
         </div>
-    </section>
+      </div>
 
-    <section class="bg-gray-50 py-20 px-6">
-        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <div class="flex-1">
-                <h2 class="text-3xl font-bold mb-6 text-gray-900">Built by Experience</h2>
-                <p class="text-gray-700 mb-4 leading-relaxed">
-                    <strong>Adolfo Salazar</strong> is a Senior Software Architect with 30 years of expertise. He currently manages financial systems for ecosystems serving over 330,000 users.
-                </p>
-                <p class="text-gray-600 leading-relaxed italic">
-                    "After decades of building software for major public institutions, my mission is to democratize that same level of technology for every local business owner."
-                </p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-inner w-full md:w-80">
-                <h4 class="font-bold text-gray-900 mb-2">Technical DNA:</h4>
-                <ul class="text-sm text-gray-600 space-y-2">
-                    <li>• Node.js / PostgreSQL</li>
-                    <li>• Flutter (Cross-platform)</li>
-                    <li>• TensorFlow Lite (AI Integration)</li>
-                    <li>• Field-proven in 15+ Institutions</li>
-                </ul>
-            </div>
+      <!-- PHONE MOCKUP -->
+      <div class="hero-visual">
+        <div class="floating-badge badge-left">
+          <div class="badge-emoji">🥐</div>
+          <div style="font-size:12px;color:#1C1916;font-weight:700">Panadería Lupita</div>
+          <div style="font-size:11px;color:#6B6360">⭐⭐⭐⭐⭐ · 180m</div>
         </div>
-    </section>
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="phone-status">
+              <span class="phone-time">9:41</span>
+              <div style="display:flex;gap:6px;align-items:center">
+                <span style="color:white;font-size:10px">●●●</span>
+                <span style="color:white;font-size:10px">🔋</span>
+              </div>
+            </div>
+            <div class="phone-inner">
+              <div class="app-header">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <div class="app-logo-sm">Changa<span style="color:var(--marigold)">rros</span></div>
+                  <span style="font-size:18px">🔔</span>
+                </div>
+                <div class="app-search">
+                  <span>🔍</span>
+                  <span class="es">Buscar en tu colonia…</span>
+                  <span class="en">Search your neighborhood…</span>
+                </div>
+              </div>
+              <div class="app-barrio-pills">
+                <span class="pill pill-active">Del Valle</span>
+                <span class="pill pill-inactive">Narvarte</span>
+                <span class="pill pill-inactive">Roma</span>
+                <span class="pill pill-inactive">Condesa</span>
+              </div>
+              <div class="mosaic">
+                <div class="biz-card">
+                  <div class="biz-img" style="background:#FFF3E0">🥐</div>
+                  <div class="biz-info">
+                    <div class="biz-name">Pan de Casa</div>
+                    <div class="biz-type es">Panadería · 180m</div>
+                    <div class="biz-type en">Bakery · 180m</div>
+                    <div class="biz-stars">★★★★★</div>
+                  </div>
+                </div>
+                <div class="biz-card">
+                  <div class="biz-img" style="background:#FCE4EC">🌸</div>
+                  <div class="biz-info">
+                    <div class="biz-name">Flores Rosario</div>
+                    <div class="biz-type es">Florería · 320m</div>
+                    <div class="biz-type en">Flower Shop · 320m</div>
+                    <div class="biz-stars">★★★★★</div>
+                  </div>
+                </div>
+                <div class="biz-card">
+                  <div class="biz-img" style="background:#E8F5E9">☕</div>
+                  <div class="biz-info">
+                    <div class="biz-name">Café Dorado</div>
+                    <div class="biz-type es">Café · 90m</div>
+                    <div class="biz-type en">Coffee Shop · 90m</div>
+                    <div class="biz-stars">★★★★☆</div>
+                  </div>
+                </div>
+                <div class="biz-card">
+                  <div class="biz-img" style="background:#E3F2FD">🔧</div>
+                  <div class="biz-info">
+                    <div class="biz-name">Don Memo Fix</div>
+                    <div class="biz-type es">Plomería · 500m</div>
+                    <div class="biz-type en">Plumbing · 500m</div>
+                    <div class="biz-stars">★★★★★</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="floating-badge badge-right">
+          <div class="badge-emoji">💚</div>
+          <div style="font-size:12px;color:#1C1916;font-weight:700" class="es">¡Negocio apoyado!</div>
+          <div style="font-size:12px;color:#1C1916;font-weight:700" class="en">Business supported!</div>
+          <div style="font-size:11px;color:#6B6360" class="es">+23 ventas esta semana</div>
+          <div style="font-size:11px;color:#6B6360" class="en">+23 sales this week</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer class="py-10 text-center text-gray-500 border-t border-gray-100">
-        <p>© 2026 Changarros Tech. Also from the creator: <span class="text-blue-600 font-medium">Petsox</span> - AI-driven pet recovery.</p>
-    </footer>
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">🥐 Panaderías <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🌸 Florerías <span class="marquee-dot"></span></span>
+    <span class="marquee-item">☕ Cafeterías <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🧹 Limpieza <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🌿 Jardinería <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🔧 Plomería <span class="marquee-dot"></span></span>
+    <span class="marquee-item">💈 Estéticas <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🍕 Cocinas <span class="marquee-dot"></span></span>
+    <span class="marquee-item">📚 Papelerías <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🛒 Abarrotes <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🥐 Panaderías <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🌸 Florerías <span class="marquee-dot"></span></span>
+    <span class="marquee-item">☕ Cafeterías <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🧹 Limpieza <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🌿 Jardinería <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🔧 Plomería <span class="marquee-dot"></span></span>
+    <span class="marquee-item">💈 Estéticas <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🍕 Cocinas <span class="marquee-dot"></span></span>
+    <span class="marquee-item">📚 Papelerías <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🛒 Abarrotes <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="como-funciona">
+  <div class="section-inner">
+    <div class="fade-up">
+      <span class="section-tag es">¿Cómo funciona?</span>
+      <span class="section-tag en" style="display:none">How it works</span>
+      <h2 class="section-title">
+        <span class="es">Simple como ir<br>a la <span class="italic">tiendita.</span></span>
+        <span class="en">Simple as going<br>to the <span class="italic">corner store.</span></span>
+      </h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card fade-up" style="--gradient: linear-gradient(90deg, var(--terracotta), var(--marigold))">
+        <div class="step-num" style="color: #FDEBD8">01</div>
+        <div class="step-icon">📍</div>
+        <div class="step-title es">Elige tu colonia</div>
+        <div class="step-title en" style="display:none">Choose your neighborhood</div>
+        <p class="step-desc es">Selecciona tu colonia y descubre todos los negocios locales a tu alrededor en un mosaico visual lleno de color y vida.</p>
+        <p class="step-desc en" style="display:none">Select your neighborhood and discover all local businesses around you in a colorful, lively visual mosaic.</p>
+      </div>
+      <div class="step-card fade-up" style="--gradient: linear-gradient(90deg, var(--forest), var(--mint)); animation-delay: 0.1s">
+        <div class="step-num" style="color: #DCF0E6">02</div>
+        <div class="step-icon">👆</div>
+        <div class="step-title es">Explora y elige</div>
+        <div class="step-title en" style="display:none">Explore and choose</div>
+        <p class="step-desc es">Toca cualquier negocio para ver sus productos, servicios, fotos, horarios y toda la información de contacto en un solo lugar.</p>
+        <p class="step-desc en" style="display:none">Tap any business to see their products, services, photos, hours and all contact info in one place.</p>
+      </div>
+      <div class="step-card fade-up" style="--gradient: linear-gradient(90deg, var(--pink), #F5A623); animation-delay: 0.2s">
+        <div class="step-num" style="color: #FDE8ED">03</div>
+        <div class="step-icon">💬</div>
+        <div class="step-title es">Conecta y apoya</div>
+        <div class="step-title en" style="display:none">Connect and support</div>
+        <p class="step-desc es">Contacta directo al negocio, deja reseñas y apoya el crecimiento de tu comunidad con cada compra y cada recomendación.</p>
+        <p class="step-desc en" style="display:none">Contact businesses directly, leave reviews, and support your community's growth with every purchase and recommendation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories-section" id="categorias">
+  <div class="section-inner">
+    <div class="fade-up">
+      <span class="section-tag es">Categorías</span>
+      <span class="section-tag en" style="display:none">Categories</span>
+      <h2 class="section-title">
+        <span class="es">Todo lo que<br>tu barrio <span class="italic">necesita.</span></span>
+        <span class="en">Everything your<br><span class="italic">neighborhood</span> needs.</span>
+      </h2>
+      <p class="section-lead es">Desde tu cafecito matutino hasta el plomero de confianza. Si está en tu colonia, está en Changarros.</p>
+      <p class="section-lead en" style="display:none">From your morning coffee to the trusted plumber. If it's in your neighborhood, it's on Changarros.</p>
+    </div>
+    <div class="cat-mosaic fade-up">
+      <div class="cat-card cat-1">
+        <span class="cat-emoji">🥐</span>
+        <div class="cat-name es">Panaderías</div>
+        <div class="cat-name en" style="display:none">Bakeries</div>
+        <div class="cat-count es">48 negocios</div>
+        <div class="cat-count en" style="display:none">48 businesses</div>
+      </div>
+      <div class="cat-card cat-2">
+        <span class="cat-emoji">🌸</span>
+        <div class="cat-name es">Florerías</div>
+        <div class="cat-name en" style="display:none">Flower Shops</div>
+        <div class="cat-count es">31 negocios</div>
+        <div class="cat-count en" style="display:none">31 businesses</div>
+      </div>
+      <div class="cat-card cat-3">
+        <span class="cat-emoji">☕</span>
+        <div class="cat-name es">Cafeterías</div>
+        <div class="cat-name en" style="display:none">Coffee Shops</div>
+        <div class="cat-count es">67 negocios</div>
+        <div class="cat-count en" style="display:none">67 businesses</div>
+      </div>
+      <div class="cat-card cat-4">
+        <span class="cat-emoji">🧹</span>
+        <div class="cat-name es">Limpieza</div>
+        <div class="cat-name en" style="display:none">Cleaning</div>
+        <div class="cat-count es">22 negocios</div>
+        <div class="cat-count en" style="display:none">22 businesses</div>
+      </div>
+      <div class="cat-card cat-5">
+        <span class="cat-emoji">🌿</span>
+        <div class="cat-name es">Jardinería</div>
+        <div class="cat-name en" style="display:none">Gardening</div>
+        <div class="cat-count es">18 negocios</div>
+        <div class="cat-count en" style="display:none">18 businesses</div>
+      </div>
+      <div class="cat-card cat-6">
+        <span class="cat-emoji">🔧</span>
+        <div class="cat-name es">Plomería</div>
+        <div class="cat-name en" style="display:none">Plumbing</div>
+        <div class="cat-count es">29 negocios</div>
+        <div class="cat-count en" style="display:none">29 businesses</div>
+      </div>
+      <div class="cat-card cat-7">
+        <span class="cat-emoji">💈</span>
+        <div class="cat-name es">Estéticas</div>
+        <div class="cat-name en" style="display:none">Salons</div>
+        <div class="cat-count es">55 negocios</div>
+        <div class="cat-count en" style="display:none">55 businesses</div>
+      </div>
+      <div class="cat-card cat-8">
+        <span class="cat-emoji">🍕</span>
+        <div class="cat-name es">Cocinas Locales</div>
+        <div class="cat-name en" style="display:none">Local Kitchens</div>
+        <div class="cat-count es">93 negocios</div>
+        <div class="cat-count en" style="display:none">93 businesses</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHANGARROS -->
+<section class="why-section" id="por-que">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div class="fade-up">
+        <span class="section-tag es">¿Por qué Changarros?</span>
+        <span class="section-tag en" style="display:none">Why Changarros?</span>
+        <h2 class="section-title">
+          <span class="es">Consumir local<br>es un acto de<br><span class="italic">amor.</span></span>
+          <span class="en">Shopping local<br>is an act of<br><span class="italic">love.</span></span>
+        </h2>
+        <div class="why-features">
+          <div class="why-feat">
+            <div class="feat-icon-wrap" style="background:#FFF3E0">🤝</div>
+            <div>
+              <div class="feat-title es">Construye comunidad real</div>
+              <div class="feat-title en" style="display:none">Builds real community</div>
+              <p class="feat-desc es">Cada compra local mantiene empleos, financia sueños y fortalece el tejido social de tu colonia.</p>
+              <p class="feat-desc en" style="display:none">Every local purchase maintains jobs, funds dreams, and strengthens the social fabric of your neighborhood.</p>
+            </div>
+          </div>
+          <div class="why-feat">
+            <div class="feat-icon-wrap" style="background:#E8F5E9">🌱</div>
+            <div>
+              <div class="feat-title es">Impacto ambiental positivo</div>
+              <div class="feat-title en" style="display:none">Positive environmental impact</div>
+              <p class="feat-desc es">Menos kilómetros recorridos, menos emisiones, más frescura. Lo de tu barrio siempre es más sustentable.</p>
+              <p class="feat-desc en" style="display:none">Fewer miles traveled, fewer emissions, more freshness. What's in your neighborhood is always more sustainable.</p>
+            </div>
+          </div>
+          <div class="why-feat">
+            <div class="feat-icon-wrap" style="background:#FCE4EC">💖</div>
+            <div>
+              <div class="feat-title es">Relaciones con sabor humano</div>
+              <div class="feat-title en" style="display:none">Relationships with a human touch</div>
+              <p class="feat-desc es">No hay algoritmos que reemplacen la sonrisa de la señora de la panadería o el consejo del plomero de siempre.</p>
+              <p class="feat-desc en" style="display:none">No algorithm can replace the smile of the bakery owner or advice from your trusted plumber.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="stat-block">
+          <div class="stat-row">
+            <div class="stat-item">
+              <span class="stat-num">$3</span>
+              <span class="stat-label es">de cada $10 gastados localmente se quedan en tu comunidad</span>
+              <span class="stat-label en" style="display:none">of every $10 spent locally stays in your community</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-num">68%</span>
+              <span class="stat-label es">más empleo generado vs. grandes cadenas</span>
+              <span class="stat-label en" style="display:none">more employment generated vs. large chains</span>
+            </div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-item">
+              <span class="stat-num">500+</span>
+              <span class="stat-label es">negocios locales en la app</span>
+              <span class="stat-label en" style="display:none">local businesses in the app</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-num">10K+</span>
+              <span class="stat-label es">vecinos conectados</span>
+              <span class="stat-label en" style="display:none">neighbors connected</span>
+            </div>
+          </div>
+          <div class="why-quote">
+            <p class="es">"Changarros me ayudó a encontrar clientes que nunca hubiera conocido. Mi panadería ahora tiene pedidos cada semana de gente de mi misma colonia."</p>
+            <p class="en" style="display:none">"Changarros helped me find customers I would have never met. My bakery now gets weekly orders from people in my own neighborhood."</p>
+            <div class="author es">— María Lupita, Panadería El Rincón · Del Valle</div>
+            <div class="author en" style="display:none">— María Lupita, Bakery El Rincón · Del Valle</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY SECTION -->
+<section class="community-section" id="comunidad">
+  <div class="section-inner">
+    <div class="fade-up">
+      <span class="section-tag es">Comunidad</span>
+      <span class="section-tag en" style="display:none">Community</span>
+      <h2 class="section-title">
+        <span class="es">El barrio<br>nos <span class="italic">une.</span></span>
+        <span class="en">The neighborhood<br><span class="italic">unites</span> us.</span>
+      </h2>
+      <p class="section-lead es">Changarros no es solo una app. Es un movimiento para revitalizar la economía local y fortalecer los lazos entre vecinos.</p>
+      <p class="section-lead en" style="display:none">Changarros isn't just an app. It's a movement to revitalize the local economy and strengthen bonds between neighbors.</p>
+    </div>
+    <div class="community-grid fade-up">
+      <div class="community-card">
+        <div class="icon">🏘️</div>
+        <h3 class="es">Conoce tu colonia</h3>
+        <h3 class="en" style="display:none">Know your neighborhood</h3>
+        <p class="es">Descubre negocios escondidos que llevan años siendo tesoros de tu colonia. Hay más de lo que imaginas a unos pasos de tu puerta.</p>
+        <p class="en" style="display:none">Discover hidden businesses that have been neighborhood treasures for years. There's more than you imagine just steps from your door.</p>
+      </div>
+      <div class="community-card">
+        <div class="icon">🤗</div>
+        <h3 class="es">Apoya a los tuyos</h3>
+        <h3 class="en" style="display:none">Support your own</h3>
+        <p class="es">Detrás de cada negocio hay una familia, un sueño y años de esfuerzo. Tu compra vale más de lo que crees cuando es local.</p>
+        <p class="en" style="display:none">Behind every business is a family, a dream, and years of hard work. Your purchase is worth more than you think when it's local.</p>
+      </div>
+      <div class="community-card">
+        <div class="icon">📣</div>
+        <h3 class="es">Corre la voz</h3>
+        <h3 class="en" style="display:none">Spread the word</h3>
+        <p class="es">Comparte tus negocios favoritos, deja reseñas y sé parte del cambio. El boca a boca digital es el nuevo "¿saber de alguien bueno?".</p>
+        <p class="en" style="display:none">Share your favorite businesses, leave reviews, and be part of the change. Digital word-of-mouth is the new "do you know someone good?"</p>
+      </div>
+      <div class="community-card">
+        <div class="icon">🌱</div>
+        <h3 class="es">Crece junto</h3>
+        <h3 class="en" style="display:none">Grow together</h3>
+        <p class="es">Cuando apoyamos lo local, todos crecemos. El dinero circula en la colonia, se generan más empleos y el barrio florece.</p>
+        <p class="en" style="display:none">When we support local, everyone grows. Money circulates in the neighborhood, more jobs are created, and the community flourishes.</p>
+      </div>
+      <div class="community-card">
+        <div class="icon">✨</div>
+        <h3 class="es">Historias reales</h3>
+        <h3 class="en" style="display:none">Real stories</h3>
+        <p class="es">Cada negocio en Changarros tiene una historia. Conócelas, compártelas y sé parte de esa narrativa de orgullo local.</p>
+        <p class="en" style="display:none">Every business on Changarros has a story. Learn them, share them, and be part of that narrative of local pride.</p>
+      </div>
+      <div class="community-card">
+        <div class="icon">🔗</div>
+        <h3 class="es">Redes reales</h3>
+        <h3 class="en" style="display:none">Real connections</h3>
+        <p class="es">Changarros conecta personas, no solo transacciones. Haz amigos en tu barrio mientras apoyás a quienes te rodean.</p>
+        <p class="en" style="display:none">Changarros connects people, not just transactions. Make friends in your neighborhood while supporting those around you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="section-inner">
+    <div class="fade-up">
+      <span class="section-tag es">Testimonios</span>
+      <span class="section-tag en" style="display:none">Testimonials</span>
+      <h2 class="section-title">
+        <span class="es">La voz de<br>tu <span class="italic">comunidad.</span></span>
+        <span class="en">The voice of<br>your <span class="italic">community.</span></span>
+      </h2>
+    </div>
+    <div class="testimonials-grid fade-up">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text es">"Siempre quise apoyar negocios locales pero no sabía cuáles existían cerca. Changarros fue como abrir los ojos a todo lo que tenía en mi propio barrio. Ahora el desayuno es del señor Jorge, a 3 cuadras."</p>
+        <p class="testi-text en" style="display:none">"I always wanted to support local businesses but didn't know which ones were nearby. Changarros was like opening my eyes to everything I had in my own neighborhood. Now breakfast comes from Mr. Jorge, 3 blocks away."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: var(--forest)">A</div>
+          <div>
+            <div class="testi-name">Andrea Ramírez</div>
+            <div class="testi-role es">Vecina · Colonia Del Valle</div>
+            <div class="testi-role en" style="display:none">Resident · Del Valle neighborhood</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text es">"Llevan 15 años mi florería y nunca había tenido tanta gente nueva. Changarros me trajo clientes de colonias vecinas que no me conocían. Esto es exactamente lo que necesitaban los pequeños negocios."</p>
+        <p class="testi-text en" style="display:none">"My flower shop has been around 15 years and I'd never had so many new customers. Changarros brought me clients from neighboring areas who didn't know me. This is exactly what small businesses needed."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: var(--pink)">R</div>
+          <div>
+            <div class="testi-name">Rosario Mendez</div>
+            <div class="testi-role es">Dueña · Flores Rosario</div>
+            <div class="testi-role en" style="display:none">Owner · Flores Rosario</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text es">"Como plomero independiente, nunca tuve forma fácil de llegarle a nuevos clientes. Con Changarros, tengo reseñas, fotos de mi trabajo y clientes que confían en mí antes de llamarme. Es increíble."</p>
+        <p class="testi-text en" style="display:none">"As an independent plumber, I never had an easy way to reach new customers. With Changarros, I have reviews, photos of my work, and clients who trust me before even calling. It's incredible."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: var(--sky)">M</div>
+          <div>
+            <div class="testi-name">Manuel Torres</div>
+            <div class="testi-role es">Plomero independiente · Narvarte</div>
+            <div class="testi-role en" style="display:none">Independent plumber · Narvarte</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD / QR -->
+<section class="download-section" id="descargar">
+  <div class="download-bg"></div>
+  <div class="section-inner">
+    <div class="download-grid">
+      <div class="fade-up">
+        <span class="section-tag es">Descarga la app</span>
+        <span class="section-tag en" style="display:none">Download the app</span>
+        <h2 class="section-title">
+          <span class="es">Tu barrio<br>en el <span class="italic">bolsillo.</span></span>
+          <span class="en">Your neighborhood<br>in your <span class="italic">pocket.</span></span>
+        </h2>
+        <p class="section-lead es" style="margin-bottom: 32px">Disponible para iOS y Android. Gratis, sin anuncios, con toda la calidez de tu colonia.</p>
+        <p class="section-lead en" style="display:none; margin-bottom: 32px">Available for iOS and Android. Free, no ads, with all the warmth of your neighborhood.</p>
+        <div style="display: flex; flex-direction: column; gap: 14px; max-width: 320px;">
+          <a href="#" class="btn-primary" style="justify-content: center">
+            <span>🍎</span>
+            <span class="es">App Store — iOS</span>
+            <span class="en">App Store — iOS</span>
+          </a>
+          <a href="#" class="btn-secondary" style="justify-content: center">
+            <span>🤖</span>
+            <span class="es">Google Play — Android</span>
+            <span class="en">Google Play — Android</span>
+          </a>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="qr-cards">
+          <div class="qr-card">
+            <div style="font-size: 13px; font-weight: 700; color: var(--warm-gray); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px">iOS</div>
+            <div class="qr-box">
+              <!-- QR SVG for iOS (placeholder pattern) -->
+              <svg class="qr-svg" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                <rect width="160" height="160" fill="#FDF6EC" rx="8"/>
+                <!-- Finder patterns -->
+                <rect x="8" y="8" width="48" height="48" rx="4" fill="none" stroke="#1C1916" stroke-width="6"/>
+                <rect x="20" y="20" width="24" height="24" rx="2" fill="#1C1916"/>
+                <rect x="104" y="8" width="48" height="48" rx="4" fill="none" stroke="#1C1916" stroke-width="6"/>
+                <rect x="116" y="20" width="24" height="24" rx="2" fill="#1C1916"/>
+                <rect x="8" y="104" width="48" height="48" rx="4" fill="none" stroke="#1C1916" stroke-width="6"/>
+                <rect x="20" y="116" width="24" height="24" rx="2" fill="#1C1916"/>
+                <!-- Data modules pattern -->
+                <rect x="72" y="8" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="88" y="8" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="72" y="20" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="72" y="32" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="88" y="32" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="88" y="44" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="72" y="56" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="8" y="72" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="24" y="72" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="40" y="72" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="56" y="64" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="56" y="80" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="72" y="72" width="8" height="8" fill="#C94C2D" rx="1"/>
+                <rect x="88" y="64" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="104" y="72" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="120" y="72" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="136" y="64" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="136" y="80" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="8" y="88" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="32" y="88" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="48" y="88" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="72" y="88" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="88" y="88" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="104" y="88" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="120" y="88" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="72" y="104" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="88" y="104" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="104" y="104" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="72" y="120" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="104" y="120" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="120" y="120" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="136" y="120" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="72" y="136" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="88" y="136" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="120" y="136" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="136" y="136" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="136" y="96" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="16" y="104" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="32" y="112" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="48" y="104" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="8" y="136" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="32" y="136" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="48" y="144" width="8" height="8" fill="#1C1916" rx="1"/>
+                <!-- Center logo -->
+                <rect x="66" y="66" width="28" height="28" rx="6" fill="white"/>
+                <text x="80" y="86" text-anchor="middle" font-family="serif" font-size="18" fill="#C94C2D" font-weight="900">C</text>
+              </svg>
+            </div>
+            <div class="qr-label es">Escanea para iOS</div>
+            <div class="qr-label en" style="display:none">Scan for iOS</div>
+            <div class="qr-sub">App Store</div>
+            <a href="#" class="qr-btn es">Descargar →</a>
+            <a href="#" class="qr-btn en" style="display:none">Download →</a>
+          </div>
+          <div class="qr-card">
+            <div style="font-size: 13px; font-weight: 700; color: var(--warm-gray); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px">Android</div>
+            <div class="qr-box">
+              <svg class="qr-svg" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                <rect width="160" height="160" fill="#FDF6EC" rx="8"/>
+                <rect x="8" y="8" width="48" height="48" rx="4" fill="none" stroke="#1C1916" stroke-width="6"/>
+                <rect x="20" y="20" width="24" height="24" rx="2" fill="#1C1916"/>
+                <rect x="104" y="8" width="48" height="48" rx="4" fill="none" stroke="#1C1916" stroke-width="6"/>
+                <rect x="116" y="20" width="24" height="24" rx="2" fill="#1C1916"/>
+                <rect x="8" y="104" width="48" height="48" rx="4" fill="none" stroke="#1C1916" stroke-width="6"/>
+                <rect x="20" y="116" width="24" height="24" rx="2" fill="#1C1916"/>
+                <rect x="64" y="8" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="80" y="8" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="64" y="24" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="80" y="24" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="64" y="40" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="80" y="56" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="8" y="64" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="32" y="64" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="48" y="64" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="64" y="64" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="80" y="72" width="8" height="8" fill="#F5A623" rx="1"/>
+                <rect x="96" y="64" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="112" y="64" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="128" y="72" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="144" y="64" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="8" y="80" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="24" y="80" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="48" y="80" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="64" y="80" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="96" y="80" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="128" y="80" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="144" y="80" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="64" y="96" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="96" y="96" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="112" y="96" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="64" y="112" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="80" y="112" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="128" y="112" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="64" y="128" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="96" y="128" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="112" y="128" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="128" y="128" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="144" y="128" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="64" y="144" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="80" y="144" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="128" y="144" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="16" y="96" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="48" y="96" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="16" y="112" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="48" y="128" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="8" y="144" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="32" y="144" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="48" y="144" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="144" y="96" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="144" y="112" width="8" height="8" fill="#1C1916" rx="1"/>
+                <rect x="66" y="66" width="28" height="28" rx="6" fill="white"/>
+                <text x="80" y="86" text-anchor="middle" font-family="serif" font-size="18" fill="#F5A623" font-weight="900">C</text>
+              </svg>
+            </div>
+            <div class="qr-label es">Escanea para Android</div>
+            <div class="qr-label en" style="display:none">Scan for Android</div>
+            <div class="qr-sub">Google Play</div>
+            <a href="#" class="qr-btn es">Descargar →</a>
+            <a href="#" class="qr-btn en" style="display:none">Download →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner fade-up">
+    <h2>
+      <span class="es">¿Tu negocio no<br>está en <em>Changarros</em>?</span>
+      <span class="en">Your business not<br>on <em>Changarros</em> yet?</span>
+    </h2>
+    <p>
+      <span class="es">Únete gratis y llega a miles de vecinos en tu colonia. Sube fotos, productos, servicios y empieza a recibir clientes de tu propia comunidad.</span>
+      <span class="en">Join for free and reach thousands of neighbors in your area. Upload photos, products, services, and start receiving customers from your own community.</span>
+    </p>
+    <a href="#" class="btn-white">
+      <span class="es">✨ Registrar mi negocio gratis</span>
+      <span class="en">✨ Register my business free</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">Changa<span>rros</span></div>
+        <p class="es">Tu barrio, tus negocios, tu comunidad. Conectando lo local desde 2024.</p>
+        <p class="en" style="display:none">Your neighborhood, your businesses, your community. Connecting the local since 2024.</p>
+      </div>
+      <div class="footer-links">
+        <h4 class="es">App</h4>
+        <h4 class="en" style="display:none">App</h4>
+        <a href="#" class="es">Descargar iOS</a>
+        <a href="#" class="en" style="display:none">Download iOS</a>
+        <a href="#" class="es">Descargar Android</a>
+        <a href="#" class="en" style="display:none">Download Android</a>
+        <a href="#" class="es">Para negocios</a>
+        <a href="#" class="en" style="display:none">For businesses</a>
+      </div>
+      <div class="footer-links">
+        <h4 class="es">Compañía</h4>
+        <h4 class="en" style="display:none">Company</h4>
+        <a href="#" class="es">Nosotros</a>
+        <a href="#" class="en" style="display:none">About us</a>
+        <a href="#" class="es">Prensa</a>
+        <a href="#" class="en" style="display:none">Press</a>
+        <a href="#" class="es">Contacto</a>
+        <a href="#" class="en" style="display:none">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h4 class="es">Legal</h4>
+        <h4 class="en" style="display:none">Legal</h4>
+        <a href="#" class="es">Privacidad</a>
+        <a href="#" class="en" style="display:none">Privacy</a>
+        <a href="#" class="es">Términos</a>
+        <a href="#" class="en" style="display:none">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="es">© 2024 Changarros. Hecho con ❤️ para tu barrio.</span>
+      <span class="en" style="display:none">© 2024 Changarros. Made with ❤️ for your neighborhood.</span>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+        <a href="#" class="social-btn" aria-label="Facebook">💬</a>
+        <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
+        <a href="#" class="social-btn" aria-label="Twitter/X">✖</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleLang() {
+    const body = document.body;
+    const isEn = body.classList.toggle('lang-en');
+    document.getElementById('btn-es').classList.toggle('active', !isEn);
+    document.getElementById('btn-en').classList.toggle('active', isEn);
+    document.querySelectorAll('.es, .en').forEach(el => {
+      const shouldShow = el.classList.contains(isEn ? 'en' : 'es');
+      el.style.display = shouldShow ? (el.tagName === 'SPAN' || el.classList.contains('bilingual-inline') ? 'inline' : 'block') : 'none';
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
