@@ -289,6 +289,48 @@
   .cat-7 { background: #F1F8E9; color: var(--charcoal); }
   .cat-8 { background: #FBE9E7; color: var(--charcoal); }
 
+  /* SEARCH SPOTLIGHT */
+  .search-spotlight { background: var(--charcoal); }
+  .search-spotlight-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .search-examples { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .search-chip {
+    display: inline-block;
+    background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85);
+    border: 1.5px solid rgba(255,255,255,0.15);
+    border-radius: 100px; padding: 8px 18px;
+    font-size: 13px; font-weight: 600;
+    transition: background 0.2s, border-color 0.2s;
+    cursor: default;
+  }
+  .search-chip:hover { background: rgba(245,166,35,0.2); border-color: var(--marigold); color: var(--marigold); }
+  .search-phone-mock {
+    background: white; border-radius: 24px;
+    overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+  }
+  .search-bar-mock {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--cream); padding: 16px 20px;
+    border-bottom: 1.5px solid #EEE6D8;
+    font-size: 14px; font-weight: 600; color: var(--charcoal);
+  }
+  .search-icon-mock { font-size: 18px; }
+  .cursor { display: inline-block; animation: blink 1s step-end infinite; color: var(--terracotta); font-weight: 400; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  .search-result-mock { padding: 8px 0; }
+  .search-result-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 20px; border-bottom: 1px solid #F5EFE6;
+    transition: background 0.2s; cursor: pointer;
+  }
+  .search-result-item:last-child { border-bottom: none; }
+  .search-result-item:hover { background: var(--cream); }
+  .result-emoji { font-size: 28px; flex-shrink: 0; }
+  .result-info { flex: 1; }
+  .result-name { font-size: 14px; font-weight: 700; color: var(--charcoal); margin-bottom: 3px; }
+  .result-loc { font-size: 12px; color: var(--warm-gray); }
+  .result-stars { font-size: 13px; color: var(--marigold); flex-shrink: 0; }
+  @media (max-width: 900px) { .search-spotlight-inner { grid-template-columns: 1fr; } }
+
   /* WHY SECTION */
   .why-section { background: white; }
   .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 60px; }
@@ -505,6 +547,7 @@
   .bilingual-inline .en { display: none; }
   body.lang-en .bilingual-inline .es { display: none; }
   body.lang-en .bilingual-inline .en { display: inline; }
+
 </style>
 </head>
 <body>
@@ -656,26 +699,26 @@
 <!-- MARQUEE -->
 <div class="marquee-section">
   <div class="marquee-track">
-    <span class="marquee-item">🥐 Panaderías <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🌸 Florerías <span class="marquee-dot"></span></span>
-    <span class="marquee-item">☕ Cafeterías <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🧹 Limpieza <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🌿 Jardinería <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🔧 Plomería <span class="marquee-dot"></span></span>
-    <span class="marquee-item">💈 Estéticas <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🍕 Cocinas <span class="marquee-dot"></span></span>
-    <span class="marquee-item">📚 Papelerías <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🛒 Abarrotes <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🥐 Panaderías <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🌸 Florerías <span class="marquee-dot"></span></span>
-    <span class="marquee-item">☕ Cafeterías <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🧹 Limpieza <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🌿 Jardinería <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🔧 Plomería <span class="marquee-dot"></span></span>
-    <span class="marquee-item">💈 Estéticas <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🍕 Cocinas <span class="marquee-dot"></span></span>
-    <span class="marquee-item">📚 Papelerías <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🛒 Abarrotes <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🥐 <span class="es">Panaderías</span><span class="en">Bakeries</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🌸 <span class="es">Florerías</span><span class="en">Flower Shops</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">☕ <span class="es">Cafeterías</span><span class="en">Coffee Shops</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🧹 <span class="es">Limpieza</span><span class="en">Cleaning</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🌿 <span class="es">Jardinería</span><span class="en">Gardening</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🔧 <span class="es">Plomería</span><span class="en">Plumbing</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">💈 <span class="es">Estéticas</span><span class="en">Salons</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🍕 <span class="es">Cocinas</span><span class="en">Kitchens</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">📚 <span class="es">Papelerías</span><span class="en">Stationery</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🛒 <span class="es">Abarrotes</span><span class="en">Grocery Stores</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🥐 <span class="es">Panaderías</span><span class="en">Bakeries</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🌸 <span class="es">Florerías</span><span class="en">Flower Shops</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">☕ <span class="es">Cafeterías</span><span class="en">Coffee Shops</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🧹 <span class="es">Limpieza</span><span class="en">Cleaning</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🌿 <span class="es">Jardinería</span><span class="en">Gardening</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🔧 <span class="es">Plomería</span><span class="en">Plumbing</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">💈 <span class="es">Estéticas</span><span class="en">Salons</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🍕 <span class="es">Cocinas</span><span class="en">Kitchens</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">📚 <span class="es">Papelerías</span><span class="en">Stationery</span> <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🛒 <span class="es">Abarrotes</span><span class="en">Grocery Stores</span> <span class="marquee-dot"></span></span>
   </div>
 </div>
 
@@ -793,6 +836,79 @@
   </div>
 </section>
 
+<!-- CITY SEARCH SPOTLIGHT -->
+<section class="search-spotlight">
+  <div class="section-inner">
+    <div class="search-spotlight-inner fade-up">
+      <div class="search-spotlight-text">
+        <span class="section-tag es" style="color:var(--marigold)">Búsqueda en toda la ciudad</span>
+        <span class="section-tag en" style="display:none;color:var(--marigold)">City-wide search</span>
+        <h2 class="section-title" style="color:white">
+          <span class="es">¿Buscas algo<br><span class="italic">especial?</span></span>
+          <span class="en">Looking for<br>something <span class="italic">special?</span></span>
+        </h2>
+        <p class="section-lead" style="color:rgba(255,255,255,0.7);max-width:480px">
+          <span class="es">No te limites a tu colonia. Changarros te permite buscar en toda la ciudad — ese anticuario único, el estilista que hace cortes que nadie más hace, la pastelera artesanal que vende por encargo, el sastre que todavía cose a mano. Si existe en la ciudad, Changarros te dice dónde está.</span>
+          <span class="en">Don't limit yourself to your neighborhood. Changarros lets you search the whole city — that one-of-a-kind antique shop, the stylist doing cuts nobody else does, the artisan baker who takes custom orders, the tailor who still sews by hand. If it exists in the city, Changarros tells you where.</span>
+        </p>
+        <div class="search-examples">
+          <span class="search-chip es">🪑 Anticuaria de los años 50</span>
+          <span class="search-chip en" style="display:none">🪑 1950s antique furniture</span>
+          <span class="search-chip es">✂️ Corte de navaja estilo vintage</span>
+          <span class="search-chip en" style="display:none">✂️ Vintage straight razor cut</span>
+          <span class="search-chip es">🎂 Pasteles veganos por encargo</span>
+          <span class="search-chip en" style="display:none">🎂 Custom vegan cakes</span>
+          <span class="search-chip es">🧵 Sastre a la medida</span>
+          <span class="search-chip en" style="display:none">🧵 Made-to-measure tailor</span>
+          <span class="search-chip es">🪴 Plantas suculentas raras</span>
+          <span class="search-chip en" style="display:none">🪴 Rare succulent plants</span>
+        </div>
+      </div>
+      <div class="search-visual">
+        <div class="search-phone-mock">
+          <div class="search-bar-mock">
+            <span class="search-icon-mock">🔍</span>
+            <span class="search-typing es">anticuaria con muebles de los 50<span class="cursor">|</span></span>
+            <span class="search-typing en" style="display:none">antique shop 1950s furniture<span class="cursor">|</span></span>
+          </div>
+          <div class="search-result-mock">
+            <div class="search-result-item">
+              <div class="result-emoji">🪑</div>
+              <div class="result-info">
+                <div class="result-name es">El Baúl de Don Pepe</div>
+                <div class="result-name en" style="display:none">El Baúl de Don Pepe</div>
+                <div class="result-loc es">Colonia Doctores · 2.4 km</div>
+                <div class="result-loc en" style="display:none">Doctores neighborhood · 2.4 km</div>
+              </div>
+              <div class="result-stars">★★★★★</div>
+            </div>
+            <div class="search-result-item">
+              <div class="result-emoji">🗝️</div>
+              <div class="result-info">
+                <div class="result-name es">Antigüedades La Época</div>
+                <div class="result-name en" style="display:none">Antigüedades La Época</div>
+                <div class="result-loc es">Centro Histórico · 5.1 km</div>
+                <div class="result-loc en" style="display:none">Historic Center · 5.1 km</div>
+              </div>
+              <div class="result-stars">★★★★☆</div>
+            </div>
+            <div class="search-result-item">
+              <div class="result-emoji">🛋️</div>
+              <div class="result-info">
+                <div class="result-name es">Retro Muebles GDL</div>
+                <div class="result-name en" style="display:none">Retro Muebles GDL</div>
+                <div class="result-loc es">Zapopan · 7.8 km</div>
+                <div class="result-loc en" style="display:none">Zapopan · 7.8 km</div>
+              </div>
+              <div class="result-stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- WHY CHANGARROS -->
 <section class="why-section" id="por-que">
   <div class="section-inner">
@@ -830,6 +946,15 @@
               <div class="feat-title en" style="display:none">Relationships with a human touch</div>
               <p class="feat-desc es">No hay algoritmos que reemplacen la sonrisa de la señora de la panadería o el consejo del plomero de siempre.</p>
               <p class="feat-desc en" style="display:none">No algorithm can replace the smile of the bakery owner or advice from your trusted plumber.</p>
+            </div>
+          </div>
+          <div class="why-feat">
+            <div class="feat-icon-wrap" style="background:#EDE9FE">🔍</div>
+            <div>
+              <div class="feat-title es">Busca en toda la ciudad</div>
+              <div class="feat-title en" style="display:none">Search across the whole city</div>
+              <p class="feat-desc es">¿Buscas algo muy específico — una anticuaria especial, un corte de cabello único, un pastelero artesanal? Escríbelo y Changarros te dice exactamente dónde encontrarlo en la ciudad.</p>
+              <p class="feat-desc en" style="display:none">Looking for something very specific — a rare antique shop, a one-of-a-kind haircut, an artisan pastry chef? Just type it and Changarros tells you exactly where to find it across the city.</p>
             </div>
           </div>
         </div>
